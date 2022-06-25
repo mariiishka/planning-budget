@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App';
+import { FirebaseAppProvider } from 'reactfire';
+import firebaseApp from './common/firebaseApp';
+import App from './components/Unknown/App';
 
 import reportWebVitals from './reportWebVitals';
 
@@ -9,7 +11,9 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <FirebaseAppProvider firebaseApp={firebaseApp}>
+      <App />
+    </FirebaseAppProvider>
   </React.StrictMode>,
 );
 
