@@ -16,7 +16,6 @@ const withThemeProvider = (Story, context) => {
           height: '100%',
           width: '100%',
           bgcolor: 'background.default',
-          // color: 'text.primary',
         }}
       >
         <Story {...context} />
