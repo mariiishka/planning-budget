@@ -1,3 +1,4 @@
+import { Typography } from '@mui/material';
 import React, { useState, useEffect } from 'react';
 import { useUser } from 'reactfire';
 
@@ -20,12 +21,12 @@ const Root: React.FC = () => {
   }
 
   if (isLogged) {
-    return <p>Log out</p>;
+    return <Typography variant="h1">Log out</Typography>;
   }
 
   return (
     <>
-      <>Login</>
+      <Typography variant="h1">Login</Typography>
     </>
   );
 };
