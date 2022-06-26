@@ -63,6 +63,9 @@ const colors = {
   red300: '#e84855',
   red400: '#da4450',
   red500: '#af3640',
+  neutral600: '#535e69',
+  neutral500: '#49505A',
+  neutral700: '#74788f',
   neutral800: '#3a3a6e',
   neutral900: '#212042',
   black: '#02182b',
@@ -83,6 +86,14 @@ const shadows = {
   blue: {
     shadowLight: `0px 0px 25px ${colors.blue300}`,
     shadowDark: `0px 0px 50px ${colors.blue500}`,
+  },
+  red: {
+    shadowLight: `0px 0px 25px ${colors.red300}`,
+    shadowDark: `0px 0px 50px ${colors.red500}`,
+  },
+  purple: {
+    shadowLight: `0px 0px 25px ${colors.purple300}`,
+    shadowDark: `0px 0px 50px ${colors.purple500}`,
   },
 };
 
@@ -277,19 +288,19 @@ const theme = createTheme({
   shadows: [
     'none',
     shadows.low,
+    shadows.low,
+    'none',
+    'none',
+    'none',
+    'none',
+    'none',
+    'none',
     shadows.green.shadowLight,
     shadows.green.shadowDark,
     shadows.yellow.shadowLight,
     shadows.yellow.shadowDark,
-    shadows.blue.shadowLight,
     shadows.blue.shadowDark,
-    'none',
-    'none',
-    'none',
-    'none',
-    'none',
-    'none',
-    'none',
+    shadows.blue.shadowLight,
     'none',
     'none',
     'none',
@@ -301,6 +312,239 @@ const theme = createTheme({
     'none',
     'none',
   ],
+  components: {
+    MuiButton: {
+      variants: [
+        {
+          props: { color: 'primary', variant: 'contained' },
+          style: {
+            backgroundColor: colors.purple300,
+            '&:hover': {
+              backgroundColor: colors.purple400,
+            },
+            '&:disabled': {
+              color: colors.black,
+              backgroundColor: colors.purple300,
+            },
+          },
+        },
+        {
+          props: { color: 'primary', variant: 'outlined' },
+          style: {
+            color: colors.purple300,
+            backgroundColor: 'transparent',
+            borderColor: colors.purple300,
+            '&:hover': {
+              filter: `drop-shadow(${shadows.purple.shadowLight}) drop-shadow(${shadows.purple.shadowDark})`,
+            },
+            '&:disabled': {
+              color: colors.purple300,
+              borderColor: colors.purple300,
+            },
+          },
+        },
+        {
+          props: { color: 'primary', variant: 'text' },
+          style: {
+            color: colors.purple300,
+            '&:hover': {
+              color: colors.purple400,
+              borderBottomColor: colors.purple400,
+              backgroundColor: `${alpha(colors.purple400, 0.25)}`,
+            },
+            '&:disabled': {
+              color: colors.purple400,
+              borderBottomColor: colors.purple400,
+              backgroundColor: 'transparent',
+            },
+          },
+        },
+        {
+          props: { color: 'success', variant: 'contained' },
+          style: {
+            color: colors.black,
+            '&:disabled': {
+              color: colors.black,
+              backgroundColor: colors.green400,
+            },
+          },
+        },
+        {
+          props: { color: 'success', variant: 'outlined' },
+          style: {
+            '&:hover': {
+              filter: `drop-shadow(${shadows.green.shadowLight}) drop-shadow(${shadows.green.shadowDark})`,
+            },
+            '&:disabled': {
+              color: colors.green400,
+              borderColor: colors.green400,
+            },
+          },
+        },
+        {
+          props: { color: 'success', variant: 'text' },
+          style: {
+            color: colors.green400,
+            '&:hover': {
+              color: colors.green400,
+              borderBottomColor: colors.green400,
+              backgroundColor: `${alpha(colors.green400, 0.25)}`,
+            },
+            '&:disabled': {
+              color: colors.green400,
+              borderBottomColor: colors.green400,
+              backgroundColor: 'transparent',
+            },
+          },
+        },
+        {
+          props: { color: 'error', variant: 'contained' },
+          style: {
+            color: colors.white,
+            backgroundColor: colors.red300,
+            '&:hover': {
+              backgroundColor: colors.red400,
+            },
+            '&:disabled': {
+              color: colors.white,
+              backgroundColor: colors.red300,
+            },
+          },
+        },
+        {
+          props: { color: 'error', variant: 'outlined' },
+          style: {
+            '&:hover': {
+              filter: `drop-shadow(${shadows.red.shadowLight}) drop-shadow(${shadows.red.shadowDark})`,
+            },
+            '&:disabled': {
+              color: colors.red400,
+              borderColor: colors.red400,
+            },
+          },
+        },
+        {
+          props: { color: 'error', variant: 'text' },
+          style: {
+            color: colors.red300,
+            backgroundColor: 'transparent',
+            '&:hover': {
+              color: colors.red400,
+              borderBottomColor: colors.red400,
+              backgroundColor: `${alpha(colors.red400, 0.25)}`,
+            },
+            '&:disabled': {
+              color: colors.red300,
+              borderBottomColor: colors.red300,
+              backgroundColor: 'transparent',
+            },
+          },
+        },
+        {
+          props: { color: 'info', variant: 'contained' },
+          style: {
+            '&:disabled': {
+              color: colors.white,
+              backgroundColor: colors.lightBlue400,
+            },
+          },
+        },
+        {
+          props: { color: 'info', variant: 'outlined' },
+          style: {
+            '&:hover': {
+              filter: `drop-shadow(${shadows.blue.shadowLight}) drop-shadow(${shadows.blue.shadowDark})`,
+            },
+            '&:disabled': {
+              color: colors.lightBlue400,
+              borderColor: colors.lightBlue400,
+            },
+          },
+        },
+        {
+          props: { color: 'info', variant: 'text' },
+          style: {
+            color: colors.lightBlue300,
+            '&:hover': {
+              color: colors.lightBlue400,
+              borderBottomColor: colors.lightBlue400,
+              backgroundColor: `${alpha(colors.lightBlue400, 0.25)}`,
+            },
+            '&:disabled': {
+              color: colors.lightBlue300,
+              borderBottomColor: colors.lightBlue300,
+              backgroundColor: 'transparent',
+            },
+          },
+        },
+        {
+          props: { color: 'warning', variant: 'contained' },
+          style: {
+            '&:disabled': {
+              color: colors.white,
+              backgroundColor: colors.yellow400,
+            },
+          },
+        },
+        {
+          props: { color: 'warning', variant: 'outlined' },
+          style: {
+            '&:hover': {
+              filter: `drop-shadow(${shadows.yellow.shadowLight}) drop-shadow(${shadows.yellow.shadowDark})`,
+            },
+            '&:disabled': {
+              color: colors.yellow400,
+              borderColor: colors.yellow400,
+            },
+          },
+        },
+        {
+          props: { color: 'warning', variant: 'text' },
+          style: {
+            color: colors.yellow300,
+            '&:hover': {
+              color: colors.yellow400,
+              borderBottomColor: colors.yellow400,
+              backgroundColor: `${alpha(colors.yellow400, 0.25)}`,
+            },
+            '&:disabled': {
+              color: colors.yellow300,
+              borderBottomColor: colors.yellow300,
+              backgroundColor: 'transparent',
+            },
+          },
+        },
+        {
+          props: { variant: 'text' },
+          style: {
+            padding: 0,
+            borderRadius: 0,
+            borderBottomWidth: 1,
+            borderBottomStyle: 'solid',
+            borderBottomColor: 'transparent',
+          },
+        },
+      ],
+      styleOverrides: {
+        root: {
+          textTransform: 'none',
+          boxShadow: 'none',
+          cursor: 'pointer',
+          fontSize: 16,
+          lineHeight: 1.5,
+          fontFamily: "'Kanit', sans-serif",
+          fontWeight: 600,
+          paddingTop: defaultTheme.spacing(3),
+          paddingBottom: defaultTheme.spacing(3),
+          paddingLeft: defaultTheme.spacing(5),
+          paddingRight: defaultTheme.spacing(5),
+          '&:disabled': {
+            opacity: '20%',
+          },
+        },
+      },
+    },
+  },
 } as IThemeOptions);
 
 export default theme;

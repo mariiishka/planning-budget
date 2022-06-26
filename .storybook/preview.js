@@ -1,26 +1,12 @@
-import { ThemeProvider, createTheme } from '@mui/material/styles';
-import Box from '@mui/material/Box';
-import './style.css';
-
-const darkTheme = createTheme({
-  palette: {
-    mode: 'dark',
-  },
-});
+import { CssBaseline } from '@mui/material';
+import { ThemeProvider } from '@mui/material/styles';
+import theme from '../src/common/theme';
 
 const withThemeProvider = (Story, context) => {
   return (
-    <ThemeProvider theme={darkTheme}>
-      <Box
-        sx={{
-          height: '100%',
-          width: '100%',
-          bgcolor: 'background.default',
-        }}
-      >
-        <Story {...context} />
-      </Box>
-
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Story {...context} />
     </ThemeProvider>
 
   );
