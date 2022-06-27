@@ -3,6 +3,7 @@ import { getAuth } from 'firebase/auth';
 import React from 'react';
 import { AuthProvider, useFirebaseApp } from 'reactfire';
 import theme from '../../../common/theme';
+import UIContextProvider from '../../UIContext';
 import Root from '../Root';
 
 const App: React.FC = () => {
@@ -13,7 +14,9 @@ const App: React.FC = () => {
     <AuthProvider sdk={auth}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <Root />
+        <UIContextProvider>
+          <Root />
+        </UIContextProvider>
       </ThemeProvider>
     </AuthProvider>
   );
